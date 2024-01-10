@@ -6,8 +6,9 @@ frameworkVersion: "3"
 
 provider:
   name: aws
-  runtime: python3.9
+  runtime: python3.10
 
 functions:
   hello:
     handler: handler.hello
+    url: true

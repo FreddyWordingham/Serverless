@@ -201,3 +201,6 @@ var/
 
 # Serverless directories
 .serverless
+
+# Environment variables
+.env
