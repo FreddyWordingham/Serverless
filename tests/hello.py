@@ -1,12 +1,12 @@
 import requests
 
 
-SERVERLESS_ENDPOINT = "4bmg7klo3kqehruy5uddzdhuvq0rqxnd.lambda-url.us-east-1.on.aws"
+SERVERLESS_ENDPOINT = "http://localhost:3000"
 
 
 def call_hello_function(data: dict):
-    url = f"https://{SERVERLESS_ENDPOINT}"
-    response = requests.get(url)
+    url = f"http://localhost:3000/dev/hello"
+    response = requests.post(url, json=data)
     return response.json()
 
 

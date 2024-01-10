@@ -8,7 +8,22 @@ provider:
   name: aws
   runtime: python3.10
 
+plugins:
+  - serverless-offline
+
+custom:
+  webpack:
+    webpackConfig: ./webpack.config.js
+    includeModules: true
+  serverless-offline:
+    httpPort: 3000
+
 functions:
   hello:
     handler: handler.hello
-    url: true
+    events:
+      - http:
+          path: hello
+          method: post
+          integration: lambda-proxy
+          cors: true

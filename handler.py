@@ -2,13 +2,14 @@ import json
 
 
 def hello(event, _context):
-    print()
-    print(event)
-    print()
+    name = event.get("name", "you")
+    body_str = event.get("body")
+    body = json.loads(body_str)
+    print(body)
 
-    body = {
-        "message": "Go Serverless v3.0! Your function executed successfully!",
-        "input": event,
-    }
+    name = body.get("name", "you")
 
-    return {"statusCode": 200, "body": json.dumps(body)}
+    data = {
+        "message": f"Hello, {name}!"}
+
+    return {"statusCode": 200, "body": json.dumps(data)}
